@@ -22,3 +22,10 @@ make run-app
 ```
 
 Note: Make sure docker is installed and running
+
+--
+### Boost:
+
+- [install boost](https://stackoverflow.com/questions/104322/how-do-you-install-boost-on-macos)
+
+- [include in vscode](https://github.com/microsoft/vscode-cpptools/issues/10315)
