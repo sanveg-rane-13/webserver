@@ -20,3 +20,5 @@ make build
 ```
 make run-app
 ```
+
+Note: Make sure docker is installed and running
