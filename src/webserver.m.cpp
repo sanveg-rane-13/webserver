@@ -3,20 +3,23 @@
 #include <memory>
 #include <thread>
 
-#include "servicelib/webserver_initializer.hpp"
+#include "servicelib/webserver_application.hpp"
 
 namespace
 {
-
 static const std::string APP_NAME = "WEBSERVER";
-
 }
 
-int main()
+int main(int argc, char** argv)
 {
-    std::cout << "Initializing webserver..." << std::endl;
 
-    webserver::WebServer webserver(APP_NAME);
+    const auto application = std::make_shared<webserver::Application>(APP_NAME);
+
+    application->start();
+
+    // TODO: wait till application listens to PORT
+
+    application->stop();
 
     return EXIT_SUCCESS;
 }
