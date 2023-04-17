@@ -1,7 +1,7 @@
+#include <cassert>
 #include <cstdlib>
 #include <iostream>
 #include <memory>
-#include <thread>
 
 #include "servicelib/webserver_application.hpp"
 
@@ -13,16 +13,21 @@ static const int PORT_NUMBER = 8080;
 
 int main(int argc, char** argv)
 {
+    try
+    {
+        const auto application =
+            std::make_shared<webserver::Application>(APP_NAME, PORT_NUMBER);
 
-    const auto application =
-        std::make_shared<webserver::Application>(APP_NAME, PORT_NUMBER);
+        assert(application);
 
-    application->start();
+        application->start();
 
-    // wait 5 secs to listen on port
-    std::this_thread::sleep_for(std::chrono::seconds(60 * 5));
-
-    application->stop();
+        application->stop();
+    }
+    catch (const std::exception& e)
+    {
+        return EXIT_FAILURE;
+    }
 
     return EXIT_SUCCESS;
 }

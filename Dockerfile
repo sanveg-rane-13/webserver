@@ -9,7 +9,7 @@ RUN apt-get update && \
         cmake \
         clang \
         libboost-all-dev \
-        openssl \
+        libssl-dev \
         valgrind \
         vim \
         wget && \

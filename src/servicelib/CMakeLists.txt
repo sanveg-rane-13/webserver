@@ -1,8 +1,10 @@
 add_library(servicelib "")
 
 # link 3rd party libraries
+find_package(OpenSSL REQUIRED)
 find_package(Boost COMPONENTS program_options log log_setup REQUIRED)
 target_link_libraries(servicelib
+  OpenSSL::SSL
   ${Boost_LIBRARIES}
   ${Boost_LOG_LIBRARY} 
   ${Boost_LOG_SETUP_LIBRARY}

@@ -29,7 +29,7 @@ class Application
     Application(Application&&) = delete;
     Application& operator=(Application&&) = delete;
 
-    void start();
+    void start() noexcept;
 
     void stop() noexcept;
 
