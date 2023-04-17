@@ -11,8 +11,10 @@ target_link_libraries(servicelib
 target_sources(servicelib
  PRIVATE
   ${CMAKE_CURRENT_LIST_DIR}/webserver_application.cpp
+  ${CMAKE_CURRENT_LIST_DIR}/webserver_httpsacceptor.cpp
  PUBLIC
   ${CMAKE_CURRENT_LIST_DIR}/webserver_application.hpp
+  ${CMAKE_CURRENT_LIST_DIR}/webserver_httpsacceptor.hpp
 )
 
 target_include_directories(servicelib

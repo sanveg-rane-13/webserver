@@ -2,6 +2,9 @@
 #ifndef WEBSERVER_APPLICATION
 #define WEBSERVER_APPLICATION
 
+#include "webserver_httpsacceptor.hpp"
+
+#include <memory>
 #include <string>
 
 namespace webserver
@@ -14,7 +17,7 @@ class Application
 {
   public:
     // CREATORS
-    Application(const std::string& appName);
+    Application(const std::string& appName, const unsigned int port);
 
     ~Application() = default;
 
@@ -32,6 +35,7 @@ class Application
 
   private:
     std::string d_appName;
+    std::shared_ptr<IHttpsAcceptor> d_httpsAcceptor;
 };
 
 } // namespace webserver
